@@ -1,65 +1,65 @@
-use std::{ops::Range, ops::RangeFrom};
+use std::ops::Range;
 use super::target::Target;
 use crate::entities::status::Status;
 use crate::entities::entity::Entity;
 
 
-pub enum Effect_Amount {
+pub enum EffectAmount {
     Range(Range<usize>),
     Number(usize)
 }
 
 pub enum Effect{ 
-    Reg_Status{
+    RegStatus{
         target: Target,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
-    Reg_Heal{
+    RegHeal{
         target: Target,
-        heal_amount: Effect_Amount,
+        heal_amount: EffectAmount,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
-    Reg_Attack{
+    RegAttack{
         target: Target,
-        dmg_amount: Effect_Amount,
+        dmg_amount: EffectAmount,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
-    Reg_Leech{ // heals one target on hit of another
+    RegLeech{ // heals one target on hit of another
         att_target: Target,
         heal_target: Target,
-        dmg_amount: Effect_Amount,
+        dmg_amount: EffectAmount,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
     // Mult effects apply a number of times equal to the times_repeated
-    Mult_Status{
+    MultStatus{
         target: Target,
-        times_repeated: Effect_Amount,
+        times_repeated: EffectAmount,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
-    Mult_Heal{
+    MultHeal{
         target: Target,
-        heal_amount: Effect_Amount,
-        times_repeated: Effect_Amount,
+        heal_amount: EffectAmount,
+        times_repeated: EffectAmount,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
-    Mult_Attack{
+    MultAttack{
         target: Target,
-        dmg_amount: Effect_Amount,
-        times_repeated: Effect_Amount,
+        dmg_amount: EffectAmount,
+        times_repeated: EffectAmount,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
-    Mult_Leech{ // heals one target on hit of another
+    MultLeech{ // heals one target on hit of another
         att_target: Target,
         heal_target: Target,
-        dmg_amount: Effect_Amount,
-        times_repeated: Effect_Amount,
+        dmg_amount: EffectAmount,
+        times_repeated: EffectAmount,
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },

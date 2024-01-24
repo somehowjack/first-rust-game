@@ -1,6 +1,4 @@
-use super::super::combat::action;
-
-
+use crate::{combat::action::Action, entities::stats::StatModifier};
 
 pub enum Equipment_Slot {
     Head,
@@ -15,9 +13,12 @@ pub enum Equipment_Slot {
 
 pub enum Item {
     Equipment{
-        
+        slot: Equipment_Slot,
+        actions: Vec<Action>,
+        stat_modifiers: Vec<StatModifier>
     },
     Spell{
-        
-    },
+        actions: Vec<Action>,
+        mana_cost: usize
+    }
 }
