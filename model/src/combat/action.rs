@@ -18,7 +18,7 @@ use crate::entities::entity::Entity;
 use super::effect::Effect;
 use super::combat::Combat;
 
-pub enum ActionType {
+pub enum Type {
     Physical,
     Radiant,
     Necrotic,
@@ -33,16 +33,28 @@ pub struct Action {
     name: String,
     desc: String,
     effects: Vec<Effect>,
-    action_types: Vec<ActionType>
+    action_types: Vec<Type>
 }
 
 impl Action {
     /**
-     * Returns Entity based on Target type and Originator's team
+     * Executes all effects in order.
      */
-    fn exec_action(&self, combat: &Combat, originator: &Entity, target: &Entity) { // Returns entity for effect to be applied to 
+    fn exec_action(&self, combat: &Combat, originator: &Entity, target: Option<&Entity>) { 
         
 
         todo!()
+    }
+
+    /**
+     * Executes all effects in order.
+     */
+    fn get_action_number_of_targets(&self) -> i32{
+        let output = 0;
+
+        for effect in &self.effects {
+            effect.get_number_of_targets();
+        }
+        0
     }
 }

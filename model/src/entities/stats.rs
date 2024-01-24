@@ -1,10 +1,4 @@
-/*
-
-NOT DONE: Make a method that returns a description of the stat/attr.
-
-NOT DONE: Make a string mthd for StatModifier/ AttrModifier
-
-*/
+use crate::combat::action::Type;
 
 pub enum Stat {
     Str,
@@ -20,18 +14,10 @@ pub enum Attr {
     MagDef
 }
 
-pub enum StatModifier {
-    Str(isize),
-    Dex(isize),
-    Con(isize),
-    Cha(isize),
-    Int(isize),
-    Wis(isize),
-    All(isize)
-}
-
-pub enum AttrModifier {
-    PhyDef(isize),
-    MagDef(isize)
+pub enum EntityModifier {
+    StatModifier(Stat, i32),
+    AttrModifier(Attr, i32),
+    TypeResistance(Type),
+    TypeImmunity(Type)
 }
 

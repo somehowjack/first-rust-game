@@ -1,4 +1,4 @@
-use crate::{combat::action::Action, entities::stats::StatModifier};
+use crate::{combat::action::Action, entities::stats::EntityModifier};
 
 pub enum Equipment_Slot {
     Head,
@@ -8,14 +8,15 @@ pub enum Equipment_Slot {
     Boots,
     Ring,
     OneHand,
-    TwoHand
+    TwoHand,
+    Background
 }
 
 pub enum Item {
     Equipment{
         slot: Equipment_Slot,
         actions: Vec<Action>,
-        stat_modifiers: Vec<StatModifier>
+        entity_modifiers: Vec<EntityModifier>
     },
     Spell{
         actions: Vec<Action>,

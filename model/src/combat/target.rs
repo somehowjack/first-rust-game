@@ -1,4 +1,5 @@
 use crate::entities::entity::Entity;
+use super::combat::Combat;
 
 
 
@@ -20,7 +21,7 @@ impl Target {
     /**
      * Returns Entity based on Target type and Originator's team
      */
-    fn get_target(&self, /*game: &Game,*/ originator: Entity) -> Entity { // Returns entity for effect to be applied to 
+    fn get_target(&self, combat: &Combat, originator: &Entity, target: Option<&Entity>) -> Entity { // Returns entity for effect to be applied to 
         
         match self {
             Target::TargetAll => todo!(),

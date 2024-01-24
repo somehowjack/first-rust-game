@@ -1,4 +1,5 @@
 use std::ops::Range;
+use super::combat::Combat;
 use super::target::Target;
 use crate::entities::status::Status;
 use crate::entities::entity::Entity;
@@ -63,5 +64,29 @@ pub enum Effect{
         status: Option<Status>,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
+}
+
+impl Effect {
+    /**
+     * Executes all effects on the 
+     */
+    fn exec_effect(&self, combat: &Combat, originator: &Entity, target: &Entity) { 
+        
+
+        todo!()
+    }
+
+    pub(super) fn get_number_of_targets(&self) -> i32 {
+        let out = 0;
+
+        match self {
+            Effect::RegLeech { att_target, heal_target, .. } | Effect::MultLeech { att_target, heal_target, .. } => {
+                todo!()
+            },
+            _ => todo!()
+            
+        }
+        out
+    }
 }
 
