@@ -41,13 +41,14 @@ impl Action {
      * Executes all effects in order.
      */
     fn exec_action(&self, combat: &Combat, originator: &Entity, target: Option<&Entity>) { 
-        
-
+        for effect in &self.effects {
+            effect.exec_effect(combat, originator);
+        }
         todo!()
     }
 
     /**
-     * Executes all effects in order.
+     * Number of targets needed for the action
      */
     fn get_action_number_of_targets(&self) -> i32{
         let output = 0;

@@ -13,7 +13,7 @@ pub enum EffectAmount {
 pub enum Effect{ 
     RegStatus{
         target: Target,
-        status: Option<Status>,
+        status: Status,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
     RegHeal{
@@ -39,7 +39,7 @@ pub enum Effect{
     MultStatus{
         target: Target,
         times_repeated: EffectAmount,
-        status: Option<Status>,
+        status: Status,
         to_hit: usize // out of 100 (greater than 100 is sure to hit)
     },
     MultHeal{
@@ -70,9 +70,21 @@ impl Effect {
     /**
      * Executes all effects on the 
      */
-    fn exec_effect(&self, combat: &Combat, originator: &Entity, target: &Entity) { 
+    pub fn exec_effect(&self, combat: &Combat, originator: &Entity) { 
+        let mut effect_target: Entity;
         
-
+        match self {
+            Effect::RegStatus { target, status, to_hit } => {
+                effect_target = target.get_target(combat, originator);
+            },
+            Effect::RegHeal { target, heal_amount, status, to_hit } => todo!(),
+            Effect::RegAttack { target, dmg_amount, status, to_hit } => todo!(),
+            Effect::RegLeech { att_target, heal_target, dmg_amount, status, to_hit } => todo!(),
+            Effect::MultStatus { target, times_repeated, status, to_hit } => todo!(),
+            Effect::MultHeal { target, heal_amount, times_repeated, status, to_hit } => todo!(),
+            Effect::MultAttack { target, dmg_amount, times_repeated, status, to_hit } => todo!(),
+            Effect::MultLeech { att_target, heal_target, dmg_amount, times_repeated, status, to_hit } => todo!(),
+        }
         todo!()
     }
 

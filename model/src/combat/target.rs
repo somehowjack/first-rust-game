@@ -21,14 +21,14 @@ impl Target {
     /**
      * Returns Entity based on Target type and Originator's team
      */
-    fn get_target(&self, combat: &Combat, originator: &Entity, target: Option<&Entity>) -> Entity { // Returns entity for effect to be applied to 
+    pub fn get_target(&self, combat: &Combat, originator: &Entity) -> Entity { // Returns entity for effect to be applied to 
         
         match self {
             Target::TargetAll => todo!(),
             Target::TargetSelf => todo!(),
-            Target::TargetEnemy => todo!(),
+            Target::TargetEnemy => return combat.get_target_enemy(),
             Target::TargetEnemyAjacent => todo!(),
-            Target::TargetTeam => todo!(),
+            Target::TargetTeam => return combat.get_target_team(),
             Target::WholeEnemy => todo!(),
             Target::WholeTeam => todo!(),
             Target::RandEnemy => todo!(),

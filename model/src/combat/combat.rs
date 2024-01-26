@@ -15,3 +15,13 @@ pub struct Combat {
     enemy: Vec<Entity>,
     phases: Vec<CombatPhase>
 }
+
+impl Combat {
+    pub fn get_target_team(&self) -> Entity {
+        todo!()
+    }
+
+    pub fn get_target_enemy(&self) -> Entity {
+        todo!()
+    }
+}
